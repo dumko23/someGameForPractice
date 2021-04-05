@@ -1,0 +1,72 @@
+let Clark = {
+	"health": 20,
+	"attackMax": 3,
+	"attackMin": 1,
+	"hitChance": 30,
+	"critChance": 15,
+	"critMod": 2
+};
+let John = {
+	"health": 10,
+	"attackMax": 5,
+	"attackMin": 2,
+	"hitChance": 25,
+	"critChance": 25,
+	"critMod": 3
+};
+
+let x = confirm("Начать бой?");
+if (x === true) {
+	while ((Clark.health > 0) && (John.health > 0)) {
+		let chanceClark = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
+		if (chanceClark < Clark.hitChance) {
+		console.log("Кларк промахнулся!");
+		} else {
+		let critClark = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
+			if (critClark >= (100 - Clark.critChance)) {
+				let attackClark = (Math.floor(Math.random() * (Clark.attackMax - Clark.attackMin + 1)) + Clark.attackMin) * Clark.critMod;
+				John.health -= attackClark;
+				console.log("Кларк наносит критический удар, нанося " + attackClark + " урона. У Джона осталось " + John.health + " здоровья");
+				if (John.health <= 0) {
+					console.log("Кларк победил!");
+					break;
+				}
+			} else {
+				let attackClark = (Math.floor(Math.random() * (Clark.attackMax - Clark.attackMin + 1)) + Clark.attackMin);
+				John.health -= attackClark;
+				console.log("Кларк наносит удар, нанося " + attackClark + " урона. У Джона осталось " + John.health + " здоровья");
+				if (John.health <= 0) {
+					console.log("Кларк победил!");
+					break;
+				}
+		
+			}
+        }
+
+
+		chanceJohn = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
+		if (chanceJohn < 6) {
+		console.log("Джон промахнулся!")
+		} else {
+		let critJohn = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
+			if (critJohn >= (100 - John.critChance)) {
+				let attackJohn = (Math.floor(Math.random() * (John.attackMax - John.attackMin + 1)) + John.attackMin) * John.critMod;
+				Clark.health -= attackJohn;
+				console.log("Джон наносит критический удар, нанося " + attackJohn + " урона. У Кларка осталось " + Clark.health + " здоровья");
+				if (Clark.health <= 0) {
+					console.log("Джон победил!");
+					break;
+				}
+			} else {
+				let attackJohn = (Math.floor(Math.random() * (John.attackMax - John.attackMin + 1)) + John.attackMin);
+				Clark.health -= attackJohn;
+				console.log("Джон наносит удар, нанося " + attackJohn + " урона. У Кларка осталось " + Clark.health + " здоровья");
+				if (Clark.health <= 0) {
+					console.log("Джон победил!");
+					break;
+				}
+		
+			}
+        }
+    }
+}
