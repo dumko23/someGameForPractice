@@ -1,0 +1,77 @@
+let Clark = {
+	"health": 20,
+	"attackMax": 3,
+	"attackMin": 1,
+	"hitChance": 30,
+	"critChance": 15,
+	"critMod": 2
+};
+let John = {
+	"health": 10,
+	"attackMax": 5,
+	"attackMin": 2,
+	"hitChance": 25,
+	"critChance": 25,
+	"critMod": 3
+};
+
+let attackClark;
+let attackJohn;
+
+function atkClark() {
+attackClark = (Math.floor(Math.random() * (Clark.attackMax - Clark.attackMin + 1)) + Clark.attackMin);
+return attackClark;
+}
+
+function critAtkClark() {
+attackClark = atkClark() * Clark.critMod;
+return attackClark;
+}		
+
+
+function atkJohn() {
+attackJohn = (Math.floor(Math.random() * (John.attackMax - John.attackMin + 1)) + John.attackMin);
+return attackJohn;
+}
+
+function critAtkJohn() {
+attackJohn = atkJohn() * John.critMod;
+return attackJohn;
+}
+
+
+let x = confirm("Начать бой?");
+if (x === true) {
+	while ((Clark.health > 0) && (John.health > 0)) {
+		let chanceClark = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
+		if (chanceClark < Clark.hitChance) {
+		console.log("Кларк промахнулся!");
+		} else {
+		let critClark = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
+			John.health -= ((critClark >= (100 - Clark.critChance))? critAtkClark(): atkClark());
+				console.log("Кларк наносит удар, нанося " + attackClark + " урона. У Джона осталось " + John.health + " здоровья");
+				if (John.health <= 0) {
+					console.log("Кларк победил!");
+					break;
+				}
+		
+			
+        }
+
+
+		let chanceJohn = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
+		if (chanceJohn < John.hitChance) {
+		console.log("Джон промахнулся!")
+		} else {
+		let critJohn = Math.floor(Math.random() * (100 - 0 + 1)) + 0;
+			Clark.health -= ((critJohn >= (100 - John.critChance))? critAtkJohn(): atkJohn());
+				console.log("Джон наносит удар, нанося " + attackJohn + " урона. У Кларка осталось " + Clark.health + " здоровья");
+				if (Clark.health <= 0) {
+					console.log("Джон победил!");
+					break;
+				}
+		
+			
+        }
+    }
+}
