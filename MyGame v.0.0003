@@ -1,24 +1,24 @@
 let healthClark = 10;
 let healthJohn = 10;
-let attackClark = Math.floor(Math.random() + 3 - 1 + 1) + 1;
-let attackJohn = Math.floor(Math.random() + 4 - 1 + 1);
+let attackClark; //урон Кларка
+let attackJohn; // крон Джона
 let x = confirm("Начать бой?");
 if (x === true) {
 	while ((healthClark > 0) && (healthJohn > 0)) {
+		attackClark = Math.floor(Math.random() * (3 - 1 + 1)) + 1; //получаем каждый раз новое значение, чтобы не было стабильной атаки
+		attackJohn = Math.floor(Math.random() * (4 - 1 + 1))+ 1;
 		healthClark -= attackJohn;
-		alert ("У Кларка осталось " + healthClark + " здоровья");
+		console.log("Джон атакует, нанося " + attackJohn + " урона. У Кларка осталось " + healthClark + " здоровья");
+		if (healthClark <= 0) {
+			console.log("Джон победил");
+			break;}
 		healthJohn -= attackClark;
-		alert ("У Джона осталось " + healthJohn + " здоровья");
-		if (healthClark < 0) {
-			alert ("Джон победил");
-			break;
-		if (healthJohn < 0) {
-			alert ("Кларк победил");
+		console.log("Кларк атакует, нанося " + attackClark + " урона. У Джона осталось " + healthJohn + " здоровья");
+		if (healthJohn <= 0) {
+			console.log("Кларк победил");
 			break;
 			}
-		}
 
 	}
 }
  
-
