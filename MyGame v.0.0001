@@ -1,0 +1,20 @@
+let healthClark = 10;
+let healthJohn = 10;
+let attackClark = Math.floor(Math.random() + 3 - 1 + 1) + 1;
+let attackJohn = Math.floor(Math.random() + 4 - 1 + 1);
+let x = confirm("Начать бой?");
+if (x === true) {
+	while (healthClark > 0) {
+		healthClark -= attackJohn;
+		alert ("У Кларка осталось " + healthClark + " здоровья");
+		while (healthJohn > 0) {
+			healthJohn -= attackClark;
+			alert ("У Джона осталось " + healthJohn + " здоровья");
+		}
+	} if (healthClark < 0) {
+		alert ("Джон победил");
+	} else if (healthJohn < 0) {
+		alert ("Кларк победил");
+	}
+}
+ 
