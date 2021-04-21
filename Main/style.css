@@ -1,0 +1,102 @@
+body {
+    font-family: 'Comfortaa', cursive;
+}
+#heading {
+    background-color: burlywood;
+    height: 300px;
+}
+
+h2 {
+    text-align: center;
+    padding: 20px;
+
+}
+#greatings{
+    text-align: center;
+    padding-bottom: 20px;
+
+}
+#startBut {
+    background-color: darkgray;
+    border-radius: 5px;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    top: 10px;
+}
+
+
+#selectHero{
+    background-color: burlywood;
+}
+#clark{
+    padding: 10px 30px 100px 120px;
+    display: inline-block;
+}
+#john{
+    padding: 10px 30px 100px 30px;
+    display: inline-block;
+}
+#iren{
+    padding: 10px 30px 100px 30px;
+    display: inline-block;
+}
+#bork{
+    padding: 10px 30px 100px 30px;
+    display: inline-block;
+}
+#joker{
+    padding: 10px 30px 100px 30px;
+    display: inline-block;
+}
+
+#log{
+    position: center;
+    background-color: cornflowerblue;
+    margin: 0 200px;
+    padding: 20px 0;
+    height: 300px;
+
+}
+#battleLog{
+   padding-left: 50px;
+   overflow: auto;
+    height: 220px;
+}
+#battleDiv{
+    background-color: burlywood;
+    height: 300px;
+}
+#battleBtn{
+    background-color: darkgray;
+    border-radius: 5px;
+    padding: 30px 50px;
+    display: inline-block;
+    margin-left: 520px;
+    top: 10px;
+}
+#cancelBttl{
+    background-color: darkgray;
+    border-radius: 5px;
+    padding: 30px;
+    display: inline-block;
+    margin: 0 auto;
+    top: 10px;
+}
+#result{
+    background-color: darkgray;
+    border-radius: 5px;
+    padding: 30px;
+    display: block;
+    margin: 10px auto;
+    top: 10px;
+    bottom: 20px;
+}
+
+#statistDiv {
+    background-color: burlywood;
+    height: 300px;
+}
+
