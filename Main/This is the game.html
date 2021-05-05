@@ -2,104 +2,104 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>The Game!</title>
-    <link rel="stylesheet" href="style.css">
+    <title>The game!</title>
+    <link rel="stylesheet" href="Style%20v2.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap" rel="stylesheet">
-    <script src="Script.js"></script>
-
+    <script src="Script%20v2.js"></script>
 </head>
 <body>
-<div id="heading">
-    <h2>Добро пожаловать, дорогой друг!</h2>
+<div id="firstScreen">
+    <h2 style="text-align: center">Приветствую!</h2>
     <p id="greatings">Сможешь-ли ты добиться славы и признания? Или станешь очередной ступенью на чьем-то пути? Сразись - и познай свою судьбу!</p>
-    <button id="startBut">Начнём!</button>
+    <button id="startButton">Поехали!</button>
 </div>
-<div>
-    <div id="selectHero" hidden="true">
-        <h2>Выбери своего героя</h2>
-
-        <div id="clark">
-            <p>Clark<br>Клирик. Живучий.<br>Сосредоточенный.<br>Сбалансированный.</p>
-            <button class="heroes" onclick="chooseClark()">Выбрать</button>
-        </div>
-        <div id="john">
-            <p>John<br>Агрессивный.<br>Нетерпеливый.<br>Ловкий.</p>
-            <button class="heroes" onclick="chooseJohn()">Выбрать</button>
-        </div>
-        <div id="iren">
-            <p>Iren<br>Убийца.<br>Смертоносная.<br>Утончённая.</p>
-            <button class="heroes" onclick="chooseIren()">Выбрать</button>
-        </div>
-        <div id="bork">
-            <p>Bork<br>BOOOOOOOORK!<br><br><br></p>
-            <button class="heroes" onclick="chooseBork()">Выбрать</button>
-        </div>
-        <div id="joker">
-            <p>???????<br>???????. ?????.<br>?????????????.<br>???? ????????.</p>
-            <button class="heroes" onclick="chooseJoker()">?&$%#?!</button>
-        </div>
+<div id="heroList" hidden="true">
+    <h2 id="chooseHeader" style="text-align: center">Выбери персонажа!</h2>
+    <p id="chooseP" style="padding-left: 20px;">Список персонажей:</p>
+    <div id="pickHero">
+        <button class="heroButton" id="createHero">Создать нового героя</button>
+        <button class="heroButton" id="clark" onclick="heroPick(Clark); onHeroClick(player, 'heroName', 'heroHealth', 'heroHealthLeft', 'heroDamage', 'heroImage'); onHeroClick(player, 'pickedHeroName', 'pickedHeroHealth', 'pickedHeroHealthLeft', 'pickedHeroDamage', 'pickedHeroImage');">Clark</button>
+        <button class="heroButton" id="john" onclick="heroPick(John); onHeroClick(player, 'heroName', 'heroHealth', 'heroHealthLeft', 'heroDamage', 'heroImage'); onHeroClick(player, 'pickedHeroName', 'pickedHeroHealth', 'pickedHeroHealthLeft', 'pickedHeroDamage', 'pickedHeroImage'); ">John</button>
+        <button class="heroButton" id="iren" onclick="heroPick(Irene); onHeroClick(player, 'heroName', 'heroHealth', 'heroHealthLeft', 'heroDamage', 'heroImage'); onHeroClick(player, 'pickedHeroName', 'pickedHeroHealth', 'pickedHeroHealthLeft', 'pickedHeroDamage', 'pickedHeroImage');">Irene</button>
+        <button class="heroButton" id="Bart" onclick="heroPick(Bart); onHeroClick(player, 'heroName', 'heroHealth', 'heroHealthLeft', 'heroDamage', 'heroImage'); onHeroClick(player, 'pickedHeroName', 'pickedHeroHealth', 'pickedHeroHealthLeft', 'pickedHeroDamage', 'pickedHeroImage'); ">Bart</button>
+        <button class="heroButton" id="joker" onclick="heroPick(Joker); onHeroClick(player, 'heroName', 'heroHealth', 'heroHealthLeft', 'heroDamage', 'heroImage'); onHeroClick(player, 'pickedHeroName', 'pickedHeroHealth', 'pickedHeroHealthLeft', 'pickedHeroDamage', 'pickedHeroImage'); ">Joker</button>
     </div>
-
-    <div id="battleDiv" hidden="true">
-        <h2>Хочешь начать битву?</h2>
-        <button id="battleBtn" >В бой!</button>
-        <button id="cancelBttl" >Другой персонаж</button>
-
-        <div id="resultDiv" hidden="true">
-            <button id="result" >Показать результаты</button>
-        </div>
-    </div>
-
-    <div id="statistDiv" hidden="true">
-        <h2>Стастистика</h2>
-        <p style="display: inline-block; padding-right: 200px; padding-left: 50px">Выбраный персонаж: <span id="playerLog1"></span><br>Здоровье: <span id="playerHlth1"></span><br>Урон: <span id="playerDmg1"></span><br>Количество побед: <span id="winCount"></span><br>Опыт: <span id="exp"></span><br></p>
-        <p style="display: inline-block; padding-left: 100px">Противник: <span id="enemyLog1"></span><br>Здоровье: <span id="enemyHlth1"></span> <br>Урон: <span id="enemyDmg1"></span><br>Количество побед: <span id="enemyWinCount"></span><br>Опыт: <span id="enemyExp"></span><br></p>
-    </div>
-
-    <div id="log" hidden="true">
-        <p style="display: inline-block; padding-right: 200px; padding-left: 50px">Выбраный персонаж: <span id="playerLog"></span><br>Здоровье: <span id="playerHlth"></span><br>Урон: <span id="playerDmg"></span><br></p>
-        <p style="display: inline-block; padding-left: 100px">Противник: <span id="enemyLog"></span><br>Здоровье: <span id="enemyHlth"></span> <br>Урон: <span id="enemyDmg"></span><br></p>
-        <div id="battleLog">
-            <p id="logText"></p>
-        </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
+<div id="heroStats" hidden="true">
+    <h3 id="heroName"></h3>
+    <h3 id="heroHealth"></h3>
+    <h3 id="heroHealthLeft"></h3>
+    <h3 id="heroDamage"></h3>
+    <button id="pickButton" hidden="true">Выбрать!</button>
+<!--сюда потом добавить остальные статы и описание по вкусу-->
 </div>
 
+    <div id="heroImage"></div>
+    <div>
+
+    </div>
+</div>
+<div id="fight" hidden="true">
+    <div id="pickedHero">
+        <h3 id="pickedHeroName"></h3>
+        <h3 id="pickedHeroHealth"></h3>
+        <h3 id="pickedHeroHealthLeft"></h3>
+        <h3 id="pickedHeroDamage"></h3>
+    </div>
+    <div id="pickedHeroImage"></div>
+
+    <div id="vsDiv"><h1>VS</h1></div>
+
+    <div id="pickEnemyDiv"><button id="pickEnemyButton">Выбрать случайного противника</button></div>
+    <div id="pickedEnemyImage" hidden="true"></div>
+    <div id="pickedEnemy" hidden="true">
+        <h3 id="pickedEnemyName"></h3>
+        <h3 id="pickedEnemyHealth"></h3>
+        <h3 id="pickedEnemyHealthLeft"></h3>
+        <h3 id="pickedEnemyDamage"></h3>
+    </div>
+    <div id="startFight" hidden="true">
+        <button id="startFightButton">Начать битву!</button>
+    </div>
+</div>
+
+<div id="battleLog" hidden="true">
+    <h3 style="font-family: 'Comfortaa', cursive; padding-left: 50px">Ход битвы:</h3>
+    <div id="log"></div>
+</div>
+<div id="heroLoses" hidden="true">
+    <h2 style="text-align: center">Герой пал.. Но можно попытаться вновь</h2>
+    <img src="heroDied.png" style="padding-left: 400px">
+
+</div>
 
 
 <script>
-    document.getElementById('startBut').onclick = function() {
-        document.getElementById('heading').hidden = true;
-        document.getElementById('selectHero').hidden = false;
+    document.getElementById('startButton').onclick = function() {
+        document.getElementById('firstScreen').hidden = true;
+        document.getElementById('heroList').hidden = false;
     }
 
-    document.getElementById('cancelBttl').onclick = function () {
-        document.getElementById('battleDiv').hidden = true;
-        document.getElementById('selectHero').hidden = false;
+    document.getElementById('pickButton').onclick = function () {
+        document.getElementById('heroList').hidden = true;
+        document.getElementById('fight').hidden = false;
+        }
+
+    document.getElementById('pickEnemyButton').onclick = function () {
+        enemyPick();
+        onHeroClick(enemy, 'pickedEnemyName', 'pickedEnemyHealth', 'pickedEnemyHealthLeft', 'pickedEnemyDamage', 'pickedEnemyImage');
+        document.getElementById('pickEnemyDiv').hidden = true;
+        document.getElementById('pickEnemyButton').hidden = true;
+        document.getElementById('pickedEnemyImage').hidden = false;
+        document.getElementById('pickedEnemy').hidden = false;
+        document.getElementById('startFight').hidden = false;
     }
 
-    document.getElementById('battleBtn').onclick = function () {
+    document.getElementById('startFightButton').onclick = function () {
+        document.getElementById('battleLog').hidden = false;
+        document.getElementById('startFight').hidden = true;
         fight();
-        document.getElementById('resultDiv').hidden = false;
     }
-
-    document.getElementById('result').onclick = function () {
-        document.getElementById('statistDiv').hidden = false;
-        announcement1();
-        statistic();
-    }
-
 </script>
 </body>
 </html>
